@@ -211,6 +211,7 @@ class Coronovirus{
      */
     public static int getCoronavirusDeaths(){
         try{
+            System.out.println();
             Document doc = Jsoup.connect("https://www.worldometers.info/coronavirus/").get();
             String classData = doc.getElementsByClass("maincounter-number").get(1).text();
             classData = classData.replace(",","");
