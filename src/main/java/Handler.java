@@ -21,6 +21,10 @@ public class Handler {
         return WeatherChecker.checkWeatherNow();
     }
 
+    static double getWeather1(String d) {
+        return WeatherChecker.checkWeatherNow(d);
+    }
+
     static double getEUR(){
         return CurrencyChecker.checkEURNow();
     }

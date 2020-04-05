@@ -40,6 +40,15 @@ public class HandlerTest {
     }
 
     /**
+     * testing weather
+     */
+    @Test
+    public void testWeatherFromYandex(){
+        System.out.println(instance.getWeather());
+        Assert.assertTrue(instance.getWeather1(WeatherChecker.YANDEX) > -5);
+    }
+
+    /**
      * testing coronavirus amounts
      */
     @Test
