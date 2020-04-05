@@ -226,3 +226,72 @@ class Coronovirus{
         }
     }
 }
+
+class Donation{
+    double amount;
+    String from;
+    String country;
+    String city;
+    String donationMessage;
+    boolean notify;
+
+    public Donation(double amount, String from, String country, String city, String donationMessage, boolean notify) {
+        this.amount = amount;
+        this.from = from;
+        this.country = country;
+        this.city = city;
+        this.donationMessage = donationMessage;
+        this.notify = notify;
+    }
+
+    public void execute(){
+        System.out.println( this.toString());
+    }
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDonationMessage() {
+        return donationMessage;
+    }
+
+    public void setDonationMessage(String donationMessage) {
+        this.donationMessage = donationMessage;
+    }
+
+    public boolean isNotify() {
+        return notify;
+    }
+
+    public void setNotify(boolean notify) {
+        this.notify = notify;
+    }
+}
