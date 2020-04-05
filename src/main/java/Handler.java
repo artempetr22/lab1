@@ -115,6 +115,10 @@ class CurrencyChecker{
             return 0.0;
         }
     }
+
+    public static double predictOil(){
+        return checkOILNow()-0.2343;
+    }
 }
 
 class WeatherChecker{
