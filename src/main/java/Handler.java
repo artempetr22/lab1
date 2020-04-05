@@ -117,6 +117,7 @@ class CurrencyChecker{
     }
 
     public static double predictOil(){
+        System.out.println("predicting");
         return checkOILNow()-0.2343;
     }
 }
