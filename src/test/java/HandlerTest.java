@@ -31,6 +31,15 @@ public class HandlerTest {
     }
 
     /**
+     * testing currencies
+     */
+    @Test
+    public void testPredict(){
+        Assert.assertTrue(instance.getUSD() > instance.getOIL());
+        Assert.assertEquals(instance.getOIL() - 0.2343, CurrencyChecker.predictOil(), 0.00000001);
+    }
+
+    /**
      * testing weather
      */
     @Test
