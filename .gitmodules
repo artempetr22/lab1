@@ -1,0 +1,6 @@
+[submodule "task-1-artempetr22"]
+	path = task-1-artempetr22
+	url = https://github.com/itmo-java-basics-2020/task-1-artempetr22
+[submodule "task-2-datatypes-and-operators-artempetr22"]
+	path = task-2-datatypes-and-operators-artempetr22
+	url = https://github.com/itmo-java-basics-2020/task-2-datatypes-and-operators-artempetr22
