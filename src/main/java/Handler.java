@@ -6,9 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Handler {
-    static final CurrencyChecker currencyChecker = new CurrencyChecker();
-    static final WeatherChecker weatherChecker = new WeatherChecker();
-    static final Coronovirus coronovirus = new Coronovirus();
 
     public static void main(String[] args) {
         System.out.println("Погода: " + getWeather());
@@ -21,35 +18,35 @@ public class Handler {
     }
 
     static double getWeather() {
-        return weatherChecker.checkWeatherNow();
+        return WeatherChecker.checkWeatherNow();
     }
 
     static double getEUR(){
-        return currencyChecker.checkEURNow();
+        return CurrencyChecker.checkEURNow();
     }
 
     static double getUSD(){
-        return currencyChecker.checkUSDNow();
+        return CurrencyChecker.checkUSDNow();
     }
 
     static double getOIL(){
-        return currencyChecker.checkOILNow();
+        return CurrencyChecker.checkOILNow();
     }
 
     static String getDate(){
-        return currencyChecker.getYandexDate();
+        return CurrencyChecker.getYandexDate();
     }
 
     static int getCoronaCases(){
-        return coronovirus.getCoronavirusCases();
+        return Coronovirus.getCoronavirusCases();
     }
 
     static int getCoronaRecovered(){
-        return coronovirus.getCoronavirusRecovered();
+        return Coronovirus.getCoronavirusRecovered();
     }
 
     static int getCoronaDeaths(){
-        return coronovirus.getCoronavirusDeaths();
+        return Coronovirus.getCoronavirusDeaths();
     }
 }
 
@@ -121,6 +118,9 @@ class CurrencyChecker{
 }
 
 class WeatherChecker{
+    public static final String YANDEX = "yandex";
+    public static final String GOOGLE = "google";
+
     /**
      * @return returns current weather according to Yandex
      */
@@ -135,6 +135,36 @@ class WeatherChecker{
         }catch (Exception e){
             return 0.0;
         }
+    }
+
+    public static double checkWeatherNow(String from){
+        if (from.equals(YANDEX)){
+            try{
+                Document doc = Jsoup.connect("https://yandex.ru").get();
+                String classData = doc.getElementsByClass("weather__temp").first().text();
+                classData = classData.substring(0, classData.length()-1);
+                double weather = Double.parseDouble(classData);
+
+                return weather;
+            }catch (Exception e){
+                return 0.0;
+            }
+        }
+
+        if (from.equals(GOOGLE)){
+            try{
+                Document doc = Jsoup.connect("https://google.ru").get();
+                String classData = doc.getElementsByClass("weather__temp").first().text();
+                classData = classData.substring(0, classData.length()-1);
+                double weather = Double.parseDouble(classData);
+
+                return weather;
+            }catch (Exception e){
+                return 0.0;
+            }
+        }
+
+        else return 0.0;
     }
 }
 
